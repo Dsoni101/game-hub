@@ -14,7 +14,7 @@ const usePlatforms = (gameQuery?: GameQuery) => useQuery({
     queryKey: ["platforms"],
     queryFn: apiClient.getAll,
     staleTime: 24 * 60 * 60 * 1000, // 24 hrs,
-    initialData: { count: platforms.length, results: platforms }
+    initialData: platforms
 })
 
 export default usePlatforms;
