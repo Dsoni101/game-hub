@@ -2,14 +2,15 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import apiClient, { FetchResponse } from "../services/api-client";
 import platforms from "../data/platforms";
+import { GameQuery } from "../App";
 
-interface Platform {
+export interface Platform {
     id: number;
     name: string;
     slug: string;
 }
 
-const usePlatforms = () => useQuery({
+const usePlatforms = (gameQuery?: GameQuery) => useQuery({
     queryKey: ["platforms"],
     queryFn: () =>
         apiClient
