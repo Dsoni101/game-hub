@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import ms from "ms";
 import { GameQuery } from "../App";
 import platforms from "../data/platforms";
 import { default as APIClient } from "../services/api-client";
@@ -13,7 +14,7 @@ export interface Platform {
 const usePlatforms = (gameQuery?: GameQuery) => useQuery({
     queryKey: ["platforms"],
     queryFn: apiClient.getAll,
-    staleTime: 24 * 60 * 60 * 1000, // 24 hrs,
+    staleTime: ms("24h"), // 24 hrs,
     initialData: platforms
 })
 
